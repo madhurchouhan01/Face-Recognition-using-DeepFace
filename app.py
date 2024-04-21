@@ -1,4 +1,4 @@
-from flask import Flask,jsonify,request,Response,redirect,render_template
+from flask import Flask,jsonify,request,render_template
 import os
 import model
 app = Flask(__name__,  static_url_path='/static')
@@ -18,9 +18,9 @@ def home():
         filepath = os.path.join(basepath, 'uploads',img.filename)
         img.save(filepath)
         result = model.process_image(filepath)
-        return render_template('home.html', result=result)
+        return render_template('index.html', result=result)
         
-    return render_template('home.html')
+    return render_template('index.html')
 
 
 if __name__ == 'main':
